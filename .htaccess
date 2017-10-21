@@ -1,0 +1,11 @@
+RewriteEngine on
+#RewriteCond %{HTTP_HOST} !^www\.
+#RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
+RewriteCond %{HTTP_HOST} ^(dev.)?video.com$ [NC]
+RewriteCond %{REQUEST_URI} !^/public/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /public/$1
+
+RewriteCond %{HTTP_HOST} ^(dev.)?video.com$ [NC]
+RewriteRule ^(/)?$ public/index.php [L]
