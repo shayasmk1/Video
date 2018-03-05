@@ -34,7 +34,10 @@ class VideoTransformer extends TransformerAbstract
             'admin'         => $video->admin_active,
             'comment'       => $video->comment,
             'channel_id'    => $video->channel_id,
-            'user_id'       => $video->user_id
+            'privacy_option_id'    => $video->privacy_option_id,
+            'user_id'       => $video->user_id,
+            'thumbnail'     => $video->thumbnail,
+            'embed'         => $video->embed
         ];
     }
     

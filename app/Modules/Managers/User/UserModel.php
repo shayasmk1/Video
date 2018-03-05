@@ -22,7 +22,7 @@ class UserModel extends Model
      * @var array
      */
     protected $dates = ['deleted_at'];
-    protected $fillable = ['uuid','first_name','last_name','address', 'phone', 'email', 'password', 'registration_type', 'registration_reference_id', 'confirmation_code', 'reconfirm_code', 'active'];
+    protected $fillable = ['uuid','first_name','last_name','address', 'phone', 'email', 'password', 'registration_type', 'registration_reference_id', 'confirmation_code', 'reconfirm_code', 'active', 'google_app_name', 'google_client_id', 'google_client_secret', 'google_api_key', 'google_folder_id', 'dropbox_key', 'dropbox_secret', 'dropbox_access_token'];
     
     public function user_tags()
     {

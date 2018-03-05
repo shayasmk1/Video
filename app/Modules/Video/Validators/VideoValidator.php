@@ -112,4 +112,71 @@ class VideoValidator
         }
     }
     
+    public function pasteLink($data)
+    {
+        $columns = array('url', 'type');
+        $helper = $this->helper->checkAllRequiredValues(array_flip($columns), $data);
+        if(!$helper)
+        {
+            $return['errors'][] = 'Something went wrong';
+            return $return;
+        }
+        $validation = $validator = Validator::make(
+                [
+                 'URL'              => trim($data['url']),
+                 'Type'             => trim($data['type'])],
+                [
+                 'URL'              => 'required',
+                 'Type'             => 'required'
+                 ]
+        );
+        
+       
+        if($validation->fails())
+        {
+            
+            $errors = $validation->errors();
+            $errors = $errors->toArray();
+            
+            foreach($errors AS $error)
+            {
+                $return['errors'][] = $error;
+            }
+            return $return;
+        }
+    }
+    
+    public function storeGoogle($data, $video)
+    {
+        $columns = array('name', 'description');
+        $helper = $this->helper->checkAllRequiredValues(array_flip($columns), $data);
+        if(!$helper)
+        {
+            $return['errors'][] = 'Something went wrong';
+            return $return;
+        }
+        $validation = $validator = Validator::make(
+                [
+                 'Name'                     => trim($data['name']),
+                 'Video'                    => $video],
+                [
+                 'Name'               => 'required|min:2',
+                 'Video'              => 'required|mimes:mp4,avi,3gp,mpeg,mkv,dat,vob,webm'
+                 ]
+        );
+        
+       
+        if($validation->fails())
+        {
+            
+            $errors = $validation->errors();
+            $errors = $errors->toArray();
+            
+            foreach($errors AS $error)
+            {
+                $return['errors'][] = $error;
+            }
+            return $return;
+        }
+    }
 }

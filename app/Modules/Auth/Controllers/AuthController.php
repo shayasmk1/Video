@@ -4,11 +4,13 @@ use App\Modules\ApiBaseController;
 use App\Http\Controllers\Controller;
 
 use League\Fractal\Manager;
+use Illuminate\Support\Facades\Hash;
 
 use App\Modules\Managers\User\UserRepositoryInterface;
 use App\Modules\User\Validators\UserValidator;
 use App\Modules\Helper\Helper;
 use App\Modules\Auth\Transformers\LoginTransformer;
+use App\Modules\User\Transformers\UserTransformer;
 
 use App\Modules\Managers\SessionToken\SessionTokenRepositoryInterface;
 use App\Modules\Auth\Validators\LoginValidator;
@@ -68,6 +70,26 @@ class AuthController extends ApiBaseController
         }
         
         return $this->errorUnauthorized(['Email and Password does not match']);
+    }
+    
+    public function register(Request $request)
+    {
+        if(!$request->exists('data'))
+        {
+            return $this->errorWrongArgs(['No Input found']);
+        }
+        
+        $data = $request->get('data');
+        $validation = $this->loginValidator->register($data);
+        if($validation)
+        {
+            return $this->errorWrongArgs($validation['errors']);
+        }
+        $data = $this->helper->clearEmptyValues($data);
+        $data['password'] = Hash::make($data['password']);
+        $data['uuid'] = $this->helper->addUuid();
+        $user = $this->user->create($data);
+        return $this->respondWithItem($user, new UserTransformer());
     }
 }
 

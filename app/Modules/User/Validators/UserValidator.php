@@ -83,7 +83,8 @@ class UserValidator
             $return['errors'][] = 'Something went wrong';
             return $return;
         }
-        $columns = array('first_name', 'last_name', 'phone');
+        
+        $columns = array('first_name', 'last_name', 'phone', 'google_app_name', 'google_client_id', 'google_client_secret', 'google_api_key', 'address');
         $helper = $this->helper->checkAllRequiredValues(array_flip($columns), $data);
         
         if(!$helper)

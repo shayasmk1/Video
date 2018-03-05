@@ -34,7 +34,6 @@ class LoginValidator
     {
         $this->helper = new helper();
     }
-
     
     public function login($data)
     {
@@ -72,4 +71,39 @@ class LoginValidator
         }
     }
     
+    public function register($data)
+    {
+        $columns = array('first_name', 'last_name', 'phone', 'email', 'password');
+        $helper = $this->helper->checkAllRequiredValues(array_flip($columns), $data);
+        
+        if(!$helper)
+        {
+            $return['errors'][] = 'Something went wrong';
+            return $return;
+        }
+        
+        $validation = $validator = Validator::make(
+                ['First Name'                  => trim($data['first_name']),
+                 'Last Name'               => trim($data['last_name']),
+                 'Phone'              => trim($data['phone']),
+                 'Email'                 => trim($data['email']),
+                 'Password'                     => trim($data['password'])],
+                ['First Name'                  => 'required',
+                 'Last Name'               => 'required',
+                 'Phone'              => 'required',
+                 'Email'                 => 'required|email',
+                 'Password'                     => 'required|min:6|alpha_dash']
+        );
+        if($validation->fails())
+        {
+            $errors = $validation->errors();
+            $errors = $errors->toArray();
+            
+            foreach($errors AS $error)
+            {
+                $return['errors'][] = $error;
+            }
+            return $return;
+        }
+    }
 }

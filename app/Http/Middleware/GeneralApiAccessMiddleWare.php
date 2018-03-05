@@ -57,12 +57,13 @@ class GeneralApiAccessMiddleWare
             
             if(!$res || $res->user->registration_type != 'general')
             {
-                return response()->json(['error' => 401, 'error_description' => [['You are not authorized. Please login']], 'status' => 401, 'message' => 'dashboard.success']);
+                return response()->json(['error' => 401, 'error_description' => ['You are not authorized. Please login'], 'status' => 401, 'message' => 'dashboard.success']);
             }
+            
             $request->request->add(['id' => $res->user_id]);
             return $next($request);
         }
         
-        return response()->json(['error' => 401, 'error_description' => [['You are not authorized. Please login']], 'status' => 401, 'message' => 'dashboard.success']);
+        return response()->json(['error' => 401, 'error_description' => ['You are not authorized. Please login'], 'status' => 401, 'message' => 'dashboard.success']);
     }
 }

@@ -51,7 +51,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'http://dev.video.com'),
 
     /*
     |--------------------------------------------------------------------------
@@ -164,6 +164,10 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         JildertMiedema\LaravelPlupload\LaravelPluploadServiceProvider::class,
+        //BC\Laravel\DropboxDriver\ServiceProvider::class,
+        
+        
+        App\Providers\DropboxFilesystemServiceProvider::class,
         
         /*
          * Package Service Providers...

@@ -34,5 +34,12 @@ return [
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],
+    
+    'google' => [
+        'app_name' => 'Video App',
+        'client_id' => '665175608321-88f95uspl8vm6v6jgd4mqlem14291oen.apps.googleusercontent.com',
+        'client_secret' => 'jPtyu_pkBk-X8efz6CSxs6Jo',
+        'api_key' => 'AIzaSyB23ndl29iK-h_IiaxCE3X8wpxw97XJPZw'
+    ]
 
 ];

@@ -1,6 +1,7 @@
 <?php
 Route::group(['middleware' => ['web'], 'prefix' => 'api/v1/auth', 'namespace' => 'App\Modules\Auth\Controllers'], function(){
     Route::post('login', 'AuthController@login');
+    Route::post('register', 'AuthController@register');
 });
 
 

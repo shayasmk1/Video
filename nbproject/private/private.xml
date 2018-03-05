@@ -3,50 +3,26 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/var/www/video/database/migrations/2017_08_25_193433_drop_video_tags_table.php</file>
-            <file>file:/var/www/video/app/Modules/Category/routes.php</file>
-            <file>file:/var/www/video/app/Modules/User/Controllers/UserTagApiController.php</file>
-            <file>file:/var/www/video/app/Modules/Managers/UserTag/UserTagRepository.php</file>
-            <file>file:/var/www/video/app/Modules/Video/Validators/ReplyCommentValidator.php</file>
-            <file>file:/var/www/video/database/migrations/2017_08_10_180500_create_tags_table.php</file>
-            <file>file:/var/www/video/app/Modules/Managers/PrivacyOption/PrivacyOptionRepository.php</file>
-            <file>file:/var/www/video/app/Console/Kernel.php</file>
-            <file>file:/var/www/video/app/Modules/Channel/routes.php</file>
-            <file>file:/var/www/video/app/Modules/Admin/Controllers/AdminTagApiController.php</file>
-            <file>file:/var/www/video/app/Modules/Video/Transformers/VideoHistoryTransformer.php</file>
-            <file>file:/var/www/video/database/migrations/2017_08_21_152213_create_video_tags_table.php</file>
-            <file>file:/var/www/video/app/Modules/Managers/PrivacyOption/PrivacyOptionRepositoryInterface.php</file>
-            <file>file:/var/www/video/app/Modules/Managers/User/UserModel.php</file>
-            <file>file:/var/www/video/app/Modules/Managers/VideoLog/VideoLogModel.php</file>
-            <file>file:/var/www/video/app/Modules/Managers/Category/CategoryModel.php</file>
-            <file>file:/var/www/video/app/Modules/User/routes.php</file>
-            <file>file:/var/www/video/app/Modules/Admin/Controllers/AdminReplyCommentApiController.php</file>
-            <file>file:/var/www/video/app/Modules/Managers/UserTag/UserTagModel.php</file>
-            <file>file:/var/www/video/app/Modules/User/Controllers/ReportsApiController.php</file>
-            <file>file:/var/www/video/app/Http/Kernel.php</file>
-            <file>file:/var/www/video/app/Modules/Managers/User/UserRepositoryInterface.php</file>
-            <file>file:/var/www/video/database/migrations/2017_08_19_122135_create_followers_table.php</file>
+            <file>file:/var/www/video/app/Modules/Managers/PrivacyOption/PrivacyOptionModel.php</file>
+            <file>file:/var/www/video/resources/views/users/googleLogin.blade.php</file>
+            <file>file:/var/www/video/app/Modules/Video/Validators/VideoValidator.php</file>
+            <file>file:/var/www/video/composer.json</file>
+            <file>file:/var/www/video/app/User.php</file>
             <file>file:/var/www/video/app/Modules/Managers/User/UserRepository.php</file>
-            <file>file:/var/www/video/app/Modules/Managers/UserCategory/UserCategoryRepositoryInterface.php</file>
-            <file>file:/var/www/video/app/Modules/Managers/ReplyComment/ReplyCommentModel.php</file>
-            <file>file:/var/www/video/database/migrations/2017_08_05_181503_add_columns_to_users_table.php</file>
-            <file>file:/var/www/video/database/migrations/2017_08_28_111958_create_channel_logs_table.php</file>
-            <file>file:/var/www/video/database/migrations/2017_08_28_182745_create_categories_table.php</file>
-            <file>file:/var/www/video/app/Modules/Managers/Tag/TagModel.php</file>
+            <file>file:/var/www/video/resources/views/users/youTubeLogin.blade.php</file>
+            <file>file:/var/www/video/database/seeds/CategoriesTableSeeder.php</file>
+            <file>file:/var/www/video/app/Modules/Auth/Controllers/AuthController.php</file>
             <file>file:/var/www/video/app/Modules/Auth/Validators/LoginValidator.php</file>
-            <file>file:/var/www/video/app/Modules/Video/Transformers/PrivacyOptionTransformer.php</file>
-            <file>file:/var/www/video/database/migrations/2017_08_25_181051_create_video_logs_table.php</file>
-            <file>file:/var/www/video/database/migrations/2017_08_25_194103_create_user_tags_table.php</file>
-            <file>file:/var/www/video/app/Modules/Admin/Controllers/AdminVideoApiController.php</file>
-            <file>file:/var/www/video/app/Modules/Video/Controllers/ReplyCommentApiController.php</file>
-            <file>file:/var/www/video/app/Modules/User/Transformers/UserTagTransformer.php</file>
-            <file>file:/var/www/video/app/Modules/User/Controllers/FollowerApiController.php</file>
-            <file>file:/var/www/video/app/Modules/Managers/Tag/TagRepository.php</file>
-            <file>file:/var/www/video/database/migrations/2017_08_25_192828_add_privacy_options_id_to_channels_table.php</file>
-            <file>file:/var/www/video/app/Modules/User/Transformers/UserTransformer.php</file>
+            <file>file:/var/www/video/app/Modules/Video/Controllers/TagApiController.php</file>
+            <file>file:/var/www/video/app/Modules/Managers/User/UserModel.php</file>
+            <file>file:/var/www/video/app/Modules/Auth/routes.php</file>
+            <file>file:/var/www/video/app/Modules/User/Validators/UserValidator.php</file>
+            <file>file:/var/www/video/app/Modules/AbstractRepository.php</file>
+            <file>file:/var/www/video/app/Modules/Managers/Comment/CommentRepository.php</file>
             <file>file:/var/www/video/app/Modules/Video/Controllers/VideoApiController.php</file>
             <file>file:/var/www/video/app/Modules/Video/routes.php</file>
-            <file>file:/var/www/video/app/Modules/Admin/Controllers/AdminAuthController.php</file>
+            <file>file:/var/www/video/app/Modules/Video/Controllers/CommentApiController.php</file>
+            <file>file:/var/www/video/database/seeds/DatabaseSeeder.php</file>
         </group>
     </open-files>
 </project-private>
