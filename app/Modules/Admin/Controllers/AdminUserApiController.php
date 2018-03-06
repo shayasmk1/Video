@@ -43,7 +43,7 @@ class AdminUserApiController extends ApiBaseController
         $user = $this->user->findWhere(['uuid'  => $id])->first();
         if(!$user)
         {
-            return $this->respondWithError([['User not found']], 404);
+            return $this->respondWithError(['User not found'], 404);
         }
         
         $data = $this->helper->clearEmptyValues($data);
@@ -58,7 +58,7 @@ class AdminUserApiController extends ApiBaseController
         $user = $this->user->findWhere(['uuid'  => $id])->first();
         if(!$user)
         {
-            return $this->respondWithError([['User not found']], 404);
+            return $this->respondWithError(['User not found'], 404);
         }
         
         $res = $this->user->deleteData($id);
@@ -71,7 +71,7 @@ class AdminUserApiController extends ApiBaseController
         $channel = $this->user->findWhere(['uuid'  => $id])->first();
         if(!$channel)
         {
-            return $this->respondWithError([['User not found']], 404);
+            return $this->respondWithError(['User not found'], 404);
         }
         $data['active'] = 1;
         
@@ -85,7 +85,7 @@ class AdminUserApiController extends ApiBaseController
         $user = $this->user->findWhere(['uuid'  => $id])->first();
         if(!$user)
         {
-            return $this->respondWithError([['User not found']], 404);
+            return $this->respondWithError(['User not found'], 404);
         }
         $data['active'] = 0;
         
@@ -108,7 +108,7 @@ class AdminUserApiController extends ApiBaseController
         $user = $this->user->findWhere(['uuid' => $id])->first();
         if(!$user)
         {
-            return $this->errorNotFound([['User not found']]);
+            return $this->errorNotFound(['User not found']);
         }
         return $this->respondWithItem($user, new UserTransformer());
     }

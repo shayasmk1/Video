@@ -78,7 +78,7 @@ class AdminVideoApiController extends ApiBaseController
         $video = $this->video->findWhere(['user_id'  => $request->get('id'), 'uuid' => $id])->first();
         if(!$video)
         {
-            return $this->respondWithError([['Video not found']], 201);
+            return $this->respondWithError(['Video not found'], 201);
         }
         
         $data = $this->helper->clearEmptyValues($data);

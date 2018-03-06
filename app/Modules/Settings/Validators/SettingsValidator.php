@@ -22,28 +22,23 @@
 * 
 */
 
-namespace App\Modules\User\Validators;
+namespace App\Modules\Settings\Validators;
 use Illuminate\Support\Facades\Validator;
-use App\Modules\Managers\User\UserManager;
-use Illuminate\Support\Facades\Session;
 use App\Modules\Helper\Helper;
 //use App\Modules\Managers\User\UserRepositoryInterface;
 
-class UserTagValidator
+class SettingsValidator
 {
     public function __construct()
     {
         //parent::__construct($attributes);
-        //$this->user = new UserManager();
         $this->helper = new Helper();
-        
     }
-//    
-    public function store($data)
+    
+    public function updateColor($data)
     {
-        $columns = array('tag_id');
+        $columns = array('color');
         $helper = $this->helper->checkAllRequiredValues(array_flip($columns), $data);
-        
         if(!$helper)
         {
             $return['errors'][] = 'Something went wrong';
@@ -51,8 +46,8 @@ class UserTagValidator
         }
         
         $validation = $validator = Validator::make(
-                ['Tag'             => trim($data['tag_id'])],
-                ['Tag'             => 'required']
+                ['Color'                     => trim($data['color'])],
+                ['Color'               => 'required|min:4']
         );
         if($validation->fails())
         {
@@ -70,23 +65,25 @@ class UserTagValidator
         }
     }
     
-    public function storeCustom($data)
+    
+    public function channelLogInsert($data)
     {
-        $columns = array('name');
+        $columns = array('video_time');
         $helper = $this->helper->checkAllRequiredValues(array_flip($columns), $data);
-        
         if(!$helper)
         {
             $return['errors'][] = 'Something went wrong';
             return $return;
         }
-        
         $validation = $validator = Validator::make(
-                ['Tag'             => trim($data['name'])],
-                ['Tag'             => 'required|min:2|unique:tags,name']
+                ['Time'                     => trim($data['video_time'])],
+                ['Time'               => 'required|date_format:H:i:s']
         );
+        
+       
         if($validation->fails())
         {
+            
             $errors = $validation->errors();
             $errors = $errors->toArray();
             
@@ -100,41 +97,4 @@ class UserTagValidator
             return $return;
         }
     }
-    
-    public function update($data)
-    {
-        if(array_key_exists('uuid', $data))
-        {
-            $return['errors'][] = 'Something went wrong';
-            return $return;
-        }
-        $columns = array('tag_id');
-        $helper = $this->helper->checkAllRequiredValues(array_flip($columns), $data);
-        
-        if(!$helper)
-        {
-            $return['errors'][] = 'Something went wrong';
-            return $return;
-        }
-        
-        $validation = $validator = Validator::make(
-                ['Tag'             => trim($data['tag_id'])],
-                ['Tag'             => 'required']
-        );
-        if($validation->fails())
-        {
-            $errors = $validation->errors();
-            $errors = $errors->toArray();
-            
-            foreach($errors AS $error)
-            {
-                foreach($error AS $eachError)
-                {
-                    $return['errors'][] = $eachError;
-                }
-            }
-            return $return;
-        }
-    }
-    
 }

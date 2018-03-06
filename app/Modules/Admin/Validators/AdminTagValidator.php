@@ -57,7 +57,10 @@ class AdminTagValidator
             
             foreach($errors AS $error)
             {
-                $return['errors'][] = $error;
+                foreach($error AS $eachError)
+                {
+                    $return['errors'][] = $eachError;
+                }
             }
             return $return;
         }
@@ -89,7 +92,10 @@ class AdminTagValidator
             
             foreach($errors AS $error)
             {
-                $return['errors'][] = $error;
+               foreach($error AS $eachError)
+                {
+                    $return['errors'][] = $eachError;
+                }
             }
             return $return;
         }

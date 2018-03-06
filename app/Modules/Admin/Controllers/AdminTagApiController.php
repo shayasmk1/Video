@@ -63,7 +63,7 @@ class AdminTagApiController extends ApiBaseController
         $tag = $this->tag->findWhere(['uuid' => $id])->first();
         if(!$tag)
         {
-            return $this->errorWrongArgs([['Tag not found']]);
+            return $this->errorWrongArgs(['Tag not found']);
         }
         return $this->respondWithItem($tag, new AdminTagTransformer());
     }
@@ -87,7 +87,7 @@ class AdminTagApiController extends ApiBaseController
         $tag = $this->tag->findWhere(['uuid' => $id])->first();
         if(!$tag)
         {
-            return $this->respondWithError([['Tag not found']], 201);
+            return $this->respondWithError(['Tag not found'], 201);
         }
         
         $data = $this->helper->clearEmptyValues($data);
@@ -102,7 +102,7 @@ class AdminTagApiController extends ApiBaseController
         $tag = $this->tag->findWhere(['uuid' => $id])->first();
         if(!$tag)
         {
-            return $this->errorWrongArgs([['Tag not found']]);
+            return $this->errorWrongArgs(['Tag not found']);
         }
         $tag = $this->tag->deleteData($id);
         
@@ -115,7 +115,7 @@ class AdminTagApiController extends ApiBaseController
         $tag = $this->tag->findWhere(['uuid' => $id])->first();
         if(!$tag)
         {
-            return $this->errorWrongArgs([['Tag not found']]);
+            return $this->errorWrongArgs(['Tag not found']);
         }
         $data['active'] = 1;
         $tag = $this->tag->updateData($data, $id);
@@ -129,7 +129,7 @@ class AdminTagApiController extends ApiBaseController
         $tag = $this->tag->findWhere(['uuid' => $id])->first();
         if(!$tag)
         {
-            return $this->errorWrongArgs([['Tag not found']]);
+            return $this->errorWrongArgs(['Tag not found']);
         }
         $data['active'] = 0;
         $tag = $this->channel->updateData($data, $id);

@@ -59,7 +59,10 @@ class ReplyCommentValidator
             
             foreach($errors AS $error)
             {
-                $return['errors'][] = $error;
+                foreach($error AS $eachError)
+                {
+                    $return['errors'][] = $eachError;
+                }
             }
             return $return;
         }

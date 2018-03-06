@@ -9,6 +9,7 @@ return  [
             'Video',
             'Channel',
             'Admin',
-            'Category'
+            'Category',
+            'Settings'
        ]
 ];

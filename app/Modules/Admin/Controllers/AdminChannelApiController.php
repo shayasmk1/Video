@@ -101,7 +101,7 @@ class AdminChannelApiController extends ApiBaseController
         $channel = $this->channel->findWhere(['user_id'  => $request->get('id'), 'uuid' => $id])->first();
         if(!$channel)
         {
-            return $this->respondWithError([['Channel not found']], 201);
+            return $this->respondWithError(['Channel not found'], 201);
         }
         
         $data = $this->helper->clearEmptyValues($data);

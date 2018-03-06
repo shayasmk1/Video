@@ -89,7 +89,7 @@ class UserTagApiController extends ApiBaseController
         $user = $this->userTag->findWhere(['user_id' => $request->get('id')]);
         if(!$user)
         {
-            return $this->errorNotFound([['User not found']]);
+            return $this->errorNotFound(['User not found']);
         }
         return $this->respondWithCollection($user, new UserTagTransformer());
     }

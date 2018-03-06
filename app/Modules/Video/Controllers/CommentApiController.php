@@ -89,7 +89,7 @@ class CommentApiController extends ApiBaseController
         $comment = $this->comment->findWhere(['video_id'  => $videoID, 'uuid' => $commentID])->first();
         if(!$comment)
         {
-            return $this->respondWithError([['Comment not found']], 201);
+            return $this->respondWithError(['Comment not found'], 201);
         }
         
         $data = $this->helper->clearEmptyValues($data);

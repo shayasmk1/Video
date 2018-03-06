@@ -26,7 +26,8 @@ class UserTransformer extends TransformerAbstract
             'address'   => $user->address,
             'phone'     => $user->phone,
             'active'    => $user->active,
-            'registration_type' => $user->registration_type
+            'registration_type' => $user->registration_type,
+            'color'     => $user->color
         ];
     }
     

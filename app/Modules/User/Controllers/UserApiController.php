@@ -89,7 +89,7 @@ class UserApiController extends ApiBaseController
         }
         if(!$user)
         {
-            return $this->errorNotFound([['User not found']]);
+            return $this->errorNotFound(['User not found']);
         }
         return $this->respondWithItem($user, new UserTransformer());
     }
@@ -100,7 +100,7 @@ class UserApiController extends ApiBaseController
         $user = $this->user->findWhere(['uuid' => $request->get('id')])->first();
         if(!$user)
         {
-            return $this->errorNotFound([['User not found']]);
+            return $this->errorNotFound(['User not found']);
         }
         return $this->respondWithItem($user, new UserTransformer());
     }
@@ -121,7 +121,7 @@ class UserApiController extends ApiBaseController
         $user = $this->user->findWhere(['uuid'  => $request->get('id')])->first();
         if(!$user)
         {
-            return $this->respondWithError([['User not found']], 404);
+            return $this->respondWithError(['User not found'], 404);
         }
         
         $data = $this->helper->clearEmptyValues($data);
@@ -136,7 +136,7 @@ class UserApiController extends ApiBaseController
         $user = $this->user->findWhere(['uuid'  => $request->get('id')])->first();
         if(!$user)
         {
-            return $this->respondWithError([['User not found']], 404);
+            return $this->respondWithError(['User not found'], 404);
         }
         
         $res = $this->user->deleteData($request->get('id'));
@@ -149,7 +149,7 @@ class UserApiController extends ApiBaseController
         $channel = $this->user->findWhere(['uuid'  => $request->get('id')])->first();
         if(!$channel)
         {
-            return $this->respondWithError([['User not found']], 404);
+            return $this->respondWithError(['User not found'], 404);
         }
         $data['active'] = 1;
         
@@ -163,7 +163,7 @@ class UserApiController extends ApiBaseController
         $user = $this->user->findWhere(['uuid'  => $request->get('id')])->first();
         if(!$user)
         {
-            return $this->respondWithError([['User not found']], 404);
+            return $this->respondWithError(['User not found'], 404);
         }
         $data['active'] = 0;
         

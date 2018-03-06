@@ -62,45 +62,45 @@ class VideoApiController extends ApiBaseController
         parent::__construct($fractal);
     }
     
-    public function store(Request $request)
-    {
-        if(!$request->exists('data'))
-        {
-            return $this->errorWrongArgs(['No Input found']);
-        }
-        
-        if (!$request->hasFile('video')) {
-            return $this->errorWrongArgs(['No Video Updated']);
-        }
-        
-        $data = $request->get('data');
-        $video = $request->file('video');
-        
-       
-        $validation = $this->videoValidator->store($data, $video);
-        
-        if($validation)
-        {
-            return $this->errorWrongArgs($validation['errors']);
-        }
-        
-        $extension = $video->extension();
-        $imageName = date('dmyHis') . $this->helper->addUuid();
-        //$path = $video->storeAs('/uploads/video', $imageName . '.' . $extension);
-        $video->move('uploads/video' , $imageName . '.' . $extension);
-        $data = $this->helper->clearEmptyValues($data);
-        $data['uuid'] = $this->helper->addUuid();
-        $data['user_id'] = $request->get('id');
-        $data['url'] = $imageName;
-//        if($request->exists('thumbnail'))
+//    public function store(Request $request)
+//    {
+//        if(!$request->exists('data'))
 //        {
-//            $data['thumbnail'] = 
+//            return $this->errorWrongArgs(['No Input found']);
 //        }
-        
-        $uuid = $this->video->insertData($data);
-        $video = $this->video->findWhere(['uuid' => $uuid])->first();
-        return $this->respondWithItem($video, new VideoTransformer());
-    }
+//        
+//        if (!$request->hasFile('video')) {
+//            return $this->errorWrongArgs(['No Video Updated']);
+//        }
+//        
+//        $data = $request->get('data');
+//        $video = $request->file('video');
+//        
+//       
+//        $validation = $this->videoValidator->store($data, $video);
+//        
+//        if($validation)
+//        {
+//            return $this->errorWrongArgs($validation['errors']);
+//        }
+//        
+//        $extension = $video->extension();
+//        $imageName = date('dmyHis') . $this->helper->addUuid();
+//        //$path = $video->storeAs('/uploads/video', $imageName . '.' . $extension);
+//        $video->move('uploads/video' , $imageName . '.' . $extension);
+//        $data = $this->helper->clearEmptyValues($data);
+//        $data['uuid'] = $this->helper->addUuid();
+//        $data['user_id'] = $request->get('id');
+//        $data['url'] = $imageName;
+////        if($request->exists('thumbnail'))
+////        {
+////            $data['thumbnail'] = 
+////        }
+//        
+//        $uuid = $this->video->insertData($data);
+//        $video = $this->video->findWhere(['uuid' => $uuid])->first();
+//        return $this->respondWithItem($video, new VideoTransformer());
+//    }
     
     public function index(Request $request)
     {
@@ -166,7 +166,7 @@ class VideoApiController extends ApiBaseController
         $video = $this->video->findWhere(['user_id'  => $request->get('id'), 'uuid' => $id])->first();
         if(!$video)
         {
-            return $this->respondWithError([['Video not found']], 201);
+            return $this->respondWithError(['Video not found'], 201);
         }
         
         $data = $this->helper->clearEmptyValues($data);
@@ -378,8 +378,8 @@ class VideoApiController extends ApiBaseController
                 $data['uuid'] = $this->helper->addUuid();
                 $data['user_id'] = $request->get('id');
                 $data['url'] = $imageName . '.' . $extension;
-                $data['channel_id'] = $channel->uuid;
-                $data['privacy_option_id'] = $privacyOption->uuid;
+               //$data['channel_id'] = $channel->uuid;
+               // $data['privacy_option_id'] = $privacyOption->uuid;
                 $data['active'] = 1;
                 $data['type'] = 'Google Drive';
                 
@@ -642,8 +642,8 @@ class VideoApiController extends ApiBaseController
             $data['type'] = 'DropBox';
             $data['url'] = $data1['url'];
             $data['user_id'] = $request->get('id');
-            $data['channel_id'] = $channel->uuid;
-            $data['privacy_option_id'] = $privacyOption->uuid;
+          //  $data['channel_id'] = $channel->uuid;
+          //  $data['privacy_option_id'] = $privacyOption->uuid;
             $data['active'] = 1;
             $upload = $this->video->create($data);
             if($upload)
@@ -719,8 +719,8 @@ class VideoApiController extends ApiBaseController
                 $data['uuid'] = $this->helper->addUuid();
                 $data['user_id'] = $request->get('id');
                 $data['url'] = $imageName . '.' . $extension;
-                $data['channel_id'] = $channel->uuid;
-                $data['privacy_option_id'] = $privacyOption->uuid;
+             //   $data['channel_id'] = $channel->uuid;
+              //  $data['privacy_option_id'] = $privacyOption->uuid;
                 $data['active'] = 1;
                 $data['type'] = 'Youtube';
                 

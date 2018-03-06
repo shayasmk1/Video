@@ -72,7 +72,10 @@ class VideoValidator
             
             foreach($errors AS $error)
             {
-                $return['errors'][] = $error;
+                foreach($error AS $eachError)
+                {
+                    $return['errors'][] = $eachError;
+                }
             }
             return $return;
         }
@@ -106,7 +109,10 @@ class VideoValidator
             
             foreach($errors AS $error)
             {
-                $return['errors'][] = $error;
+                foreach($error AS $eachError)
+                {
+                    $return['errors'][] = $eachError;
+                }
             }
             return $return;
         }
@@ -140,7 +146,10 @@ class VideoValidator
             
             foreach($errors AS $error)
             {
-                $return['errors'][] = $error;
+                foreach($error AS $eachError)
+                {
+                    $return['errors'][] = $eachError;
+                }
             }
             return $return;
         }
@@ -148,7 +157,7 @@ class VideoValidator
     
     public function storeGoogle($data, $video)
     {
-        $columns = array('name', 'description');
+        $columns = array('name', 'privacy_option_id', 'channel_id');
         $helper = $this->helper->checkAllRequiredValues(array_flip($columns), $data);
         if(!$helper)
         {
@@ -158,9 +167,13 @@ class VideoValidator
         $validation = $validator = Validator::make(
                 [
                  'Name'                     => trim($data['name']),
+                 'Privacy Option'           => trim($data['privacy_option_id']),
+                 'Channel'                  => trim($data['channel_id']),
                  'Video'                    => $video],
                 [
-                 'Name'               => 'required|min:2',
+                    'Name'               => 'required|min:2',
+                 'Privacy Option'     => 'required',
+                 'Channel'            => 'required',
                  'Video'              => 'required|mimes:mp4,avi,3gp,mpeg,mkv,dat,vob,webm'
                  ]
         );
@@ -174,7 +187,10 @@ class VideoValidator
             
             foreach($errors AS $error)
             {
-                $return['errors'][] = $error;
+                foreach($error AS $eachError)
+                {
+                    $return['errors'][] = $eachError;
+                }
             }
             return $return;
         }
